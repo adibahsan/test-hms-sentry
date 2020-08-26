@@ -2,9 +2,10 @@
   "expo": {
     "name": "test-hms-sentry",
     "slug": "test-hms-sentry",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
+    "privacy": "unlisted",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -13,14 +14,24 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "hooks": {
+      "postPublish": [
+        {
+          "file": "sentry-expo/upload-sourcemaps",
+          "config": {
+            "organization": "hsenid-mobile",
+            "project": "test-hms-sentry",
+            "authToken": "d7a0b79ac8064394a08a3c7f838ac12b50c32e3f226b4b19b72c8cc4c778736c"
+          }
+        }
+      ]
     }
   }
 }
